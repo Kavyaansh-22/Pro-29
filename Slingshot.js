@@ -7,12 +7,12 @@ class Slingshot{
             length: 5
         }
         this.pointB = pointB;
-        this.slnigshot = Constraint.create(options);
+        this.slingshot = Constraint.create(options);
         World.add(world, this.slingshot);
     }
     
     fly(){
-        this.slingshsot.bodyA = null;
+        this.slingshot.bodyA = null;
     }
     
     display(){
@@ -23,3 +23,4 @@ class Slingshot{
         line(pointA.x, pointA.y, pointB.x, pointB.y);
         }
     }
+}
