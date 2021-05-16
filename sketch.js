@@ -43,10 +43,32 @@ function setup() {
   //top
   block16 = new Block(390,155,30,40);
 
-  polygon = Bodies.circle(x,y,r);
+  //tower 2 level 1
+  block17 = new Block(620,150,30,40);
+  block18 = new Block(650,150,30,40);
+  block19 = new Block(680,150,30,40);
+  block20 = new Block(710,150,30,40);
+  block21 = new Block(740,150,30,40);
+  block22 = new Block(770,150,30,40);
+
+  //tower 2 level 2
+  block23 = new Block(650,120,30,40);
+  block24 = new Block(680,120,30,40);
+  block25 = new Block(710,120,30,40);
+  block26 = new Block(740,120,30,40);
+
+  //tower 2 level 3
+  block27 = new Block(680,90,30,40);
+  block28 = new Block(710,90,30,40);
+
+  //tower 2 level 4
+  block29 = new Block(695,60,30,40);
+  
+
+  polygon = Bodies.circle(50,200,20);
   World.add(world,polygon);
-  imageMode(CENTER);
-  image(polygon_img, polygon.position.x,polygon.position.y); 
+  polygon.isStatic= true;
+ 
 
   slingShot = new Slingshot(this.polygon, {x: 100 , y: 200});
 
@@ -58,6 +80,11 @@ function draw() {
  
   textSize(20);
   fill("lightyellow");
+  //console.log(mouseX);
+  //console.log(mouseY);
+
+  imageMode(CENTER);
+  image(polygon_img, polygon.position.x,polygon.position.y,40,40); 
   
 
   ground.display();
@@ -85,9 +112,41 @@ function draw() {
   block15.display();
   fill("grey");
   block16.display();
+  slingShot.display();
 
+  stand2.display();
   
+  fill("skyblue");
+  block17.display();
+  block18.display();
+  block19.display();
+  block20.display();
+  block21.display();
+  block22.display();
+  fill("pink");
+  block23.display();
+  block24.display();
+  block25.display();
+  block26.display();
+  fill("turquoise");
+  block27.display();
+  block28.display();
+  fill("grey");
+  block29.display();
  
  
+}
+
+function mouseDragged(){
+
+  Matter.Body.setPosition( Slingshot,{x: mouseX, y: mouseY} );
+
+
+}
+
+//create mouseReleased function here
+function mouseReleased()
+{
+  slingShot.fly();
 }
 
